@@ -310,16 +310,16 @@ The host must delay the first activation command after reset by that amount of t
 ## Commands
 
 For multi-bytes parameters, the low byte is sent first (little endian).
-Both UART and I2C follow the same command sequence.
+UART, I2C and SPI all follow the same command sequence.
 
 
 ### Activation Command
 
-Command that perform the handshake between the host and the device, and also select whether to use the UART or I2C interface. 
+Command that perform the handshake between the host and the device, and also select whether to use the UART, I2C or SPI interface. 
 The device responds with a specific 4 bytes data configurable in picoboot3.h. It is recommended that the host validate the data. 
 
 Until the host issues an activation command, all other commands are rejected. 
-Once either the UART or I2C interface is selected, the other interface will not accept commands.
+Once either the UART, I2C or SPI interface is selected, the other interface will not accept commands.
 
 #### Data sent by the host
 
