@@ -619,7 +619,7 @@ void picoboot3_reserved_command_handler() {
       uint16_t num_of_bytes = *(uint16_t*)reserved_program_command.num_of_bytes;
 
       if (PICOBOOT3_APPCODE_OFFSET > flash_address ||
-          PICO_FLASH_SIZE_BYTES <= flash_address ||
+          PICO_FLASH_SIZE_BYTES < flash_address + num_of_bytes ||
           flash_address % FLASH_PAGE_SIZE != 0) {
         reserved_command = NO_COMMAND;
         ready = 1;
