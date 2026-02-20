@@ -69,13 +69,13 @@ by V. Hunter Adams.
 
 ## Supoorted Platform
 
-- Tested on Pico SDK 2.0.0. 
-- Designed for projects on Pico SDK. Arduino core based projects are not supported. 
-- Supports RP2040 and RP2350 MCUs. 
-- Supports Arm core. RISC-V core is not supproted. 
-- UART interface was tested on Windows/Linux/Raspberry Pi hosts and 
+- picoboot3 and the [sample application](examples/blink_pb3) that runs with picoboot3 is tested on Pico C/C++ SDK 2.0.0.
+- Other platform applications (e.g. rp-rs, Arduino core) should work with picoboot3 if you add flash address offset and remove boot2. 
+- Support RP2040 and RP2350 MCUs. 
+- Support Arm core. RISC-V core is not supproted. 
+- UART interface is tested on Windows/Linux/Raspberry Pi hosts and 
 FTDI/Raspberry Pi UART/Pico debugprobe adapters. 
-- I2C and SPI interface was tested on Raspberry Pi host. 
+- I2C and SPI interface is tested on Raspberry Pi host. 
 
 
 # Getting Started
