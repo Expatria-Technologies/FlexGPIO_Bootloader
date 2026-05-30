@@ -5,13 +5,13 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(PICO_BOARD pico CACHE STRING "Board type")
-set(PICO_COPY_TO_RAM 1)
+set(PICO_COPY_TO_RAM 0)
 
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
 # Project
-project(picoboot3 C CXX ASM)
+project(FlexGPIO_bootloader C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
@@ -21,14 +21,12 @@ add_executable(${CMAKE_PROJECT_NAME}
   src/main.c
   src/picoboot3.c
 )
+set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES OUTPUT_NAME "FlexGPIO_bootloader")
 
 # SDK libraries
 target_link_libraries(${CMAKE_PROJECT_NAME}
   pico_stdlib
   pico_i2c_slave
-  hardware_dma
-  hardware_flash
-  hardware_spi
 )
 
 if (PICO_CYW43_SUPPORTED)
